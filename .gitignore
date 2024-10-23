@@ -1,3 +1,4 @@
-/.idea
-/python-demo/venv/
+.idea
+venv/
 target/
+node_modules/

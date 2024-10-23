@@ -49,6 +49,7 @@ public class Main {
         queryParams.put("keyword", "dress");
         queryParams.put("page", "1");
         queryParams.put("size", "10");
+        queryParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
 
         // 生成签名
         String sign = calculateSign(urlPath, queryParams);

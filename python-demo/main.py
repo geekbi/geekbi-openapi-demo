@@ -3,6 +3,7 @@ import requests
 import hmac
 import hashlib
 from collections import OrderedDict
+import time
 
 # 服务端地址
 BASE_URL = "https://openapi.geekbi.com"
@@ -34,7 +35,12 @@ def main():
     主函数，发送 HTTP 请求并打印结果。
     """
     url_path = "/api/v1/temu/goods/search"
-    query_params = OrderedDict([('keyword', 'dress'), ('page', '1'),('size','10')])
+    query_params = OrderedDict([
+        ('keyword', 'dress'),
+        ('page', '1'),
+        ('size', '10'),
+        ('timestamp', int(time.time()))
+    ])
     # 计算签名
     sign = calculate_sign(url_path, query_params)
     url = f"{BASE_URL}{url_path}"

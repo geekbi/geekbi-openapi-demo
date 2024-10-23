@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"sort"
+	"time"
 )
 
 const (
@@ -39,9 +40,10 @@ func calculateSign(urlPath string, queryParams map[string]string) string {
 func main() {
 	urlPath := "/api/v1/temu/goods/search"
 	queryParams := map[string]string{
-		"keyword": "dress",
-		"page":    "1",
-		"size":    "10",
+		"keyword":   "dress",
+		"page":      "1",
+		"size":      "10",
+		"timestamp": fmt.Sprintf("%d", time.Now().Unix()),
 	}
 	sign := calculateSign(urlPath, queryParams)
 	url := BASE_URL + urlPath

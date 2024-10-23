@@ -29,7 +29,8 @@ $urlPath = "/api/v1/temu/goods/search";
 $queryParams = [
     "keyword" => "dress",
     "page" => "1",
-    "size" => "10"
+    "size" => "10",
+    "timestamp" => time()
 ];
 
 // 生成签名
