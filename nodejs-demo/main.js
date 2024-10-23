@@ -29,9 +29,10 @@ async function main() {
         timestamp: Math.floor(Date.now() / 1000),
     };
     const sign = calculateSign(urlPath, queryParams);
-    const url = `${BASE_URL}${urlPath}${Object.keys(queryParams).length > 0? `?${new URLSearchParams(queryParams).toString()}` : ''}`;
     try {
-        const response = await axios.get(url, {
+        const response = await axios.get(urlPath, {
+            baseURL: BASE_URL,
+            params: queryParams,
             headers: {
                 appKey: APP_KEY,
                 sign: sign,
